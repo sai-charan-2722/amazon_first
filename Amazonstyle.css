@@ -1,0 +1,108 @@
+* {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+nav {
+  display: flex;
+  background-color: #232f3e;
+  height: 65px;
+}
+
+.navleft {
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 35px;
+  margin: 20px 20px 0 10px;
+}
+
+.navcenter {
+  display: flex;
+  margin: 15px 10px 15px 20px;
+  justify-content: center;
+}
+
+input {
+  width: 1100px;
+  font-size: 18px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  align-items: center;
+}
+
+button {
+  background-color: #ffbd69;
+  color: black;
+  font-weight: bolder;
+  width: 35px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+button:hover {
+  background-color: #ff9100;
+  cursor: pointer;
+}
+
+.navright {
+  display: flex;
+  color: white;
+  width: 240px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+a:hover {
+  color: #ff9100;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0 5px;
+  font-weight: bolder;
+}
+
+.main {
+  display: flex;
+  background-image: url("https://m.media-amazon.com/images/I/61gGY9AfeSL._SX3000_.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-evenly;
+  height: 500px;
+  background-color: antiquewhite;
+}
+
+.box1,
+.box2,
+.box3,
+.box4 {
+  margin-top: 20px;
+  background-color: white;
+  width: 23%;
+  height: 420px;
+  cursor: pointer;
+}
+
+.box1 img,
+.box2 img,
+.box3 img,
+.box4 img {
+  height: 300px;
+  width: 80%;
+  padding: 15px 35px;
+  background-size: cover;
+}
+
+.box h2 {
+  color: black;
+  font-size: xx-large;
+  padding: 5px 10px;
+}
+
+.box a {
+  padding: 5px 25px;
+}
