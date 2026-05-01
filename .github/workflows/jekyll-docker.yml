@@ -1,20 +1,34 @@
-name: Jekyll site CI
-
+name: Deploy static portfolio to GitHub Pages
+ 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main         # or 'master' if you use that
+  workflow_dispatch: # allow manual runs
+ 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+ 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+ 
 jobs:
-  build:
-
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
+ 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      # If your index.html is in root, keep path: '.'
+      # If it's inside a folder (like 'portfolio/'), change path.
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
